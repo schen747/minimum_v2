@@ -8,12 +8,12 @@ import plotly.graph_objects as go
 
 #### the following is the side bar
 
-st.sidebar.header('Simple Stock Chart :chart:')
+st.sidebar.header('Minimum Variance and Efficient Frontier for two stock2 :chart:')
 
 ratio = st.sidebar.selectbox ("Ratio of asset A:", [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1])
 int_rate = st.sidebar.text_input("Enter intrest rate:", 0.05)
 symbol = st.sidebar.text_input('Enter Symbol One', 'AAPL')
-symbol_2 = st.sidebar.text_input('Enter Symbol Two', 'Tsla')
+symbol_2 = st.sidebar.text_input('Enter Symbol Two', 'TSLA')
 start_date = st.sidebar.date_input('Start Date', dt.date(2023, 1, 1))
 end_date = st.sidebar.date_input('End Date')
 # sub_button = st.sidebar.button ('Click to get stock price')
@@ -64,7 +64,7 @@ if True :
 	correlation = df['Stock_One'].corr(df['Stock_Two'])
 	covariance = df['Stock_One'].cov(df['Stock_Two'])
 
-	pricing_date, fundamental, news = st.tabs(['Stock Stats', 'Minimium Variance','News'])
+	pricing_date, fundamental = st.tabs(['Stock Stats', 'Minimum Variance Frontier'])
 
 	with pricing_date:
 		st.subheader (f"Stats of  {symbol}")		
@@ -146,11 +146,3 @@ if True :
 
 		st.write (mv_prot)
 
-	with news:
-		# news_one = ticker.news[0]
-		for i in range (5):
-			news_one = ticker.news[i]
-			st.subheader (news_one ['title'])
-			st.write (news_one ['link'])
-		# st.write (news_one)
-		# st.write (type(ticker.news[0]))
