@@ -10,7 +10,9 @@ import plotly.graph_objects as go
 
 st.sidebar.header('Minimum Variance and Efficient Frontier for two stock2 :chart:')
 
-ratio = st.sidebar.selectbox ("Ratio of asset A:", [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1])
+ratio = st.sidebar.selectbox ("Ratio of asset A:", 
+	[0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1],
+	index =5)
 int_rate = st.sidebar.text_input("Enter intrest rate:", 0.05)
 symbol = st.sidebar.text_input('Enter Symbol One', 'AAPL')
 symbol_2 = st.sidebar.text_input('Enter Symbol Two', 'TSLA')
